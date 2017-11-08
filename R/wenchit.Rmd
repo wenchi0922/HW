@@ -1,0 +1,52 @@
+---
+title: "Adelaide Crime Analysis Report_Wenchit"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(knitr)
+knitr::opts_chunk$set(echo = TRUE)
+devtools::install_github("wenchi0922/hw2wenchit")
+```
+
+## Aim
+The aim for this project is to compare the crime in the neighborhood: GOODWOOD and WAYVILLE according to the gathered statistic data from 2012~2017, expecifically in "Offence against person" .
+
+## Results
+
+The following is a example of the stastistic file from 2012~2013
+```{r, results='asis'}
+library(data.table)
+library(readxl)
+crime_data1 <- setDT(read_excel("../data/crime-statistics-2012-13.xlsx"))
+knitr::kable(crime_data1)
+```
+
+Graph: 
+
+```{r pressure, echo=FALSE}
+library(hw2wenchit)
+library(data.table)
+library(ggplot2)
+library(readxl)
+
+filenames <- list.files("../data")
+print(filenames)
+
+crime_idx <- grep("crime-statistics", filenames)
+print(crime_idx) 
+
+crime_data <- filenames[crime_idx]
+print(crime_data)
+
+for (f in crime_data) {
+  
+adl_crime_suburb3(crime_data, "OFFENCES AGAINST THE PERSON" ,suburbs <- c("WAYVILLE", "GOODWOOD"))
+  
+}
+
+```
+
+## Discussion
+(Plot not displaying porperly, not sure why) 
+As the plot shows in the past couple years, the crime records in GOODWOOD is than WAYVILLE. Judging from this result, we can say that GOODWOOD is pissibly a more neignbrohood that WAYVILLE.
