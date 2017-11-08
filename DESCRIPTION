@@ -1,0 +1,12 @@
+Package: hw2wenchit
+Type: Package
+Title: This Package includes my rmd file and my R script for my assignment 2
+Version: 0.1.0
+Author: person("Wenchi", "Tseng", email = "wenchit@andrew.cmu.edu",role = c("aut", "cre"))
+Maintainer: The package maintainer Wenchi Tseng
+Depends: Imports: ggplot2, data.table, knittr, readxl, dplyr
+Description: This is an assignment for my R course and it's supposed to take crime data and analyze the crime 
+aptterns in different neighborhoods in Adelaide, Australia.
+License: Apache License 2.0
+Encoding: UTF-8
+LazyData: true
